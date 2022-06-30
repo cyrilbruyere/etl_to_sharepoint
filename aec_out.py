@@ -7,11 +7,11 @@ from io import StringIO
 
 # Définition de la requête SQL
 query = """
-(select  distinct it.dstamp,
+(select  distinct trunc(it.dstamp) AS DATES,
         it.supplier_id,
-        ad_1.name,
+        ad_1.name AS SUPPLIER,
         it.customer_id,
-        ad_2.name,
+        ad_2.name AS CUSTOMER,
         it.sku_id,
         it.reference_id,
         sk.description,
@@ -36,7 +36,7 @@ where it.code = 'Shipment'
     and it.WORK_GROUP like '800%'
     and it.CONSIGNMENT = '-SHP-DCLYON')
 --UNION
---(select  distinct ita.dstamp AS DATES,
+--(select  distinct trunc(ita.dstamp) AS DATES,
 --        ita.supplier_id,
 --        ad_1.name AS SUPPLIER,
 --        ita.customer_id,
