@@ -81,12 +81,12 @@ conn_wms2.commit()
 conn_wms2.close()
 
 textstream = StringIO()
-df.to_csv(textstream, index = False)
+df.to_csv(textstream, index = False, sep = ';')
 textstream.seek(0)
 file_content = textstream.read()
 
 sp_site = 'https://volvogroup.sharepoint.com/sites/unit-packaging-dc-lyon/'
-sp_folder = 'Shared Documents/Outil PACK/1_DATA_IN'
+sp_folder = 'Shared Documents/8-Outil PACK/1_DATA_IN'
 
 conn_sp = sharepoint.connect()
 
